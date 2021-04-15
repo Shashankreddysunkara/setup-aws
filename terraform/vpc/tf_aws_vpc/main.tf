@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "mod" {
 
 resource "aws_route_table" "public" {
   vpc_id           = "${aws_vpc.mod.id}"
-  propagating_vgws = ["${var.public_propagating_vgws}"]
+  propagating_vgws = [var.public_propagating_vgws]
 
   tags = {
     Name   = "${var.name}-rt-public"
@@ -43,7 +43,7 @@ resource "aws_route" "private_nat_gateway" {
 
 resource "aws_route_table" "private" {
   vpc_id           = "${aws_vpc.mod.id}"
-  propagating_vgws = ["${var.private_propagating_vgws}"]
+  propagating_vgws = [var.private_propagating_vgws]
   count            = "${var.az_count}"
 
   tags = {

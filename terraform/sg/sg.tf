@@ -3,7 +3,7 @@
 variable "external_cidr_blocks" {
   type        = "list"
   description = "list of external CIDR blocks you want to allow"
-  default     = []
+  default     = ["172.31.32.0/20", "172.31.64.0/20", "172.31.96.0/20"]
 }
 
 variable "vpc_id" {
