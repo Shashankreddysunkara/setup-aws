@@ -12,10 +12,10 @@ module "vpc" {
   cidr = "172.31.0.0/16"
 
   # TODO FIXME
-  private_subnets_cidr = "172.31.XXX.0/24"
+  private_subnets_cidr = "172.31.32.0/20"
 
   # TODO FIXME
-  public_subnets_cidr = "172.31.XXX.0/24"
+  public_subnets_cidr = "172.31.16.0/20"
 
   azs      = "${data.aws_availability_zones.available.names}"
   az_count = "${var.az_count}"
