@@ -13,6 +13,7 @@ variable "az_count" {
 variable "allowed_cidrs" {
   type        = "string"
   description = "comma separated list of the allowed CDIR blocks"
+  default = 172.31.0.0/16
 }
 
 variable "fastly_api_key" {
