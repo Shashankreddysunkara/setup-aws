@@ -16,7 +16,7 @@ resource "aws_security_group" "rds" {
     self      = true
   }
 
-  tags {
+  tags = {
     Name        = "${replace(var.domain, ".", "-")}-internal-mysql"
     Environment = "prod"
     Role        = "${var.domain}"

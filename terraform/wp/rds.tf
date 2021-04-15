@@ -18,7 +18,7 @@ resource "aws_db_instance" "wp-prod" {
   multi_az                   = true
   storage_type               = "gp2"
 
-  tags {
+  tags = {
     Name        = "${replace(var.domain, ".", "")}"
     Environment = "prod"
     Role        = "${var.domain}"
@@ -53,7 +53,7 @@ resource "aws_db_instance" "wp-test" {
   multi_az                   = true
   storage_type               = "gp2"
 
-  tags {
+  tags = {
     Name        = "test-${replace(var.domain, ".", "")}"
     Environment = "test"
     Role        = "test.${var.domain}"

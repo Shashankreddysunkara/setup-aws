@@ -8,7 +8,7 @@ resource "aws_cloudtrail" "trail" {
   s3_bucket_name                = "${aws_s3_bucket.cloudtrail.id}"
   include_global_service_events = true
 
-  tags {
+  tags = {
     Mikado = "True"
   }
 }
@@ -48,7 +48,7 @@ resource "aws_s3_bucket" "cloudtrail" {
 }
 POLICY
 
-  tags {
+  tags = {
     Mikado = "True"
   }
 }

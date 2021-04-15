@@ -6,7 +6,7 @@ resource "aws_security_group" "asg-public-http" {
 
   vpc_id = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Name   = "${replace(var.name, ".", "-")}-public-http"
     Mikado = "True"
   }
@@ -65,7 +65,7 @@ resource "aws_security_group" "asg-internal-http" {
 
   vpc_id = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Name   = "${replace(var.name, ".", "-")}-internal-http"
     Mikado = "True"
   }

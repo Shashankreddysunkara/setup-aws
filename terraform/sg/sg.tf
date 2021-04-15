@@ -41,7 +41,7 @@ resource "aws_security_group" "internal" {
 
   vpc_id = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Name   = "internal-sg"
     Mikado = "True"
   }

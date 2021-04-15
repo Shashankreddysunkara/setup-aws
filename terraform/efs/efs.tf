@@ -16,7 +16,7 @@ variable "az_count" {
 resource "aws_efs_file_system" "storage" {
   creation_token = "wp-storage"
 
-  tags {
+  tags = {
     Name   = "wp-storage"
     Mikado = "True"
   }

@@ -36,7 +36,7 @@ resource "aws_elb" "asg-elb" {
     interval            = 15
   }
 
-  tags {
+  tags = {
     Name   = "${replace(var.name, ".", "-")}"
     Mikado = "True"
   }

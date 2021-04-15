@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "apex-redirect" {
     redirect_all_requests_to = "www.${var.domain}"
   }
 
-  tags {
+  tags = {
     Name        = "${var.domain}"
     Environment = "prod"
     Role        = "${var.domain}"

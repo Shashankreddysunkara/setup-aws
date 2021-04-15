@@ -1,7 +1,7 @@
 resource "aws_route53_zone" "domain" {
   name = "${var.domain}"
 
-  tags {
+  tags = {
     Mikado = "True"
   }
 }
@@ -59,7 +59,7 @@ resource "aws_route53_zone" "int" {
   name   = "int.${var.domain}"
   vpc_id = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Mikado = "True"
   }
 }

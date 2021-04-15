@@ -72,7 +72,7 @@ resource "aws_cloudformation_stack" "autoscaling_group" {
 }
 EOF
 
-  tags {
+  tags = {
     Mikado = "True"
   }
 }

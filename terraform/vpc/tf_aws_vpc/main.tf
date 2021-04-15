@@ -3,7 +3,7 @@ resource "aws_vpc" "mod" {
   enable_dns_hostnames = "${var.enable_dns_hostnames}"
   enable_dns_support   = "${var.enable_dns_support}"
 
-  tags {
+  tags = {
     Name   = "${var.name}"
     Mikado = "True"
   }
@@ -12,7 +12,7 @@ resource "aws_vpc" "mod" {
 resource "aws_internet_gateway" "mod" {
   vpc_id = "${aws_vpc.mod.id}"
 
-  tags {
+  tags = {
     Name   = "${var.name}-igw"
     Mikado = "True"
   }
@@ -22,7 +22,7 @@ resource "aws_route_table" "public" {
   vpc_id           = "${aws_vpc.mod.id}"
   propagating_vgws = ["${var.public_propagating_vgws}"]
 
-  tags {
+  tags = {
     Name   = "${var.name}-rt-public"
     Mikado = "True"
   }
@@ -46,7 +46,7 @@ resource "aws_route_table" "private" {
   propagating_vgws = ["${var.private_propagating_vgws}"]
   count            = "${var.az_count}"
 
-  tags {
+  tags = {
     Name   = "${var.name}-rt-private-${element(var.azs, count.index)}"
     Mikado = "True"
   }
@@ -58,7 +58,7 @@ resource "aws_subnet" "private" {
   availability_zone = "${var.azs[count.index]}"
   count             = "${var.az_count}"
 
-  tags {
+  tags = {
     Name   = "${var.name}-subnet-private-${element(var.azs, count.index)}"
     Mikado = "True"
   }
@@ -74,7 +74,7 @@ resource "aws_subnet" "public" {
   availability_zone = "${var.azs[count.index]}"
   count             = "${var.az_count}"
 
-  tags {
+  tags = {
     Name   = "${var.name}-subnet-public-${element(var.azs, count.index)}"
     Mikado = "True"
   }
